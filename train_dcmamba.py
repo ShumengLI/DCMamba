@@ -47,7 +47,7 @@ parser.add_argument('--base_lr', type=float, default=0.01, help='segmentation ne
 parser.add_argument('--patch_size', type=list, default=[256, 256], help='patch size of network input')
 parser.add_argument('--patch_mix_size', type=int, default=4, help='patch size of mix input')
 # pretrain
-parser.add_argument('--load_ckpt_path', type=str, default='./pre_trained_weights/vmamba_small_e238_ema.pth', help='Path of ckpt')
+parser.add_argument('--load_ckpt_path', type=str, default='./pre_trained_weights/vmamba_tiny_e292.pth', help='Path of ckpt')
 # mambaunet/swinunet config
 parser.add_argument('--cfg', type=str, default="./configs/vmamba_tiny.yaml", help='path to config file', )
 parser.add_argument("--opts", default=None, help="Modify config options by adding 'KEY VALUE' pairs. ", nargs='+',)
@@ -83,12 +83,10 @@ def get_current_consistency_weight(epoch):
 # Network definition
 def create_model(network):
     if network == 'mambaunet':
-        args.load_ckpt_path = None if args.load_ckpt_path == 'None' else './pre_trained_weights/vmamba_tiny_e292.pth'
         config = get_config(args)
         model = MambaUnet(config, img_size=args.patch_size, num_classes=args.num_classes).cuda()
         model.load_from(config)
     elif network == 'mambaunet_dia':
-        args.load_ckpt_path = None if args.load_ckpt_path == 'None' else './pre_trained_weights/vmamba_tiny_e292.pth'
         config = get_config(args)
         model = MambaUnet_dia(config, img_size=args.patch_size, num_classes=args.num_classes).cuda()
         model.load_from(config)

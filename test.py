@@ -20,7 +20,6 @@ parser.add_argument('--num_classes', type=int,  default=9, help='output channel 
 parser.add_argument('--iteration', type=int,  default=20000, help='GPU to use')
 parser.add_argument('--batch_size', type=int, default=1, help='batch_size per gpu')
 parser.add_argument('--patch_size', type=list,  default=[256, 256], help='patch size of network input')
-parser.add_argument('--load_ckpt_path', type=str, default='./pre_trained_weights/vmamba_small_e238_ema.pth', help='Path of ckpt')
 
 parser.add_argument('--cfg', type=str, default="./configs/vmamba_tiny.yaml", help='path to config file', )
 parser.add_argument("--opts", default=None, help="Modify config options by adding 'KEY VALUE' pairs. ", nargs='+',)
