@@ -26,4 +26,4 @@ python train_dcmamba.py --exp dcmamba --dataset synapse --num_classes 9 --labele
 
 ### Acknowledgement
 
-Part of the code is origin from [Mamba-UNet](https://github.com/ziyangwang007/Mamba-UNet/tree/main). 
+Part of the code is origin from [VMamba](https://github.com/MzeroMiko/VMamba) and [Mamba-UNet](https://github.com/ziyangwang007/Mamba-UNet/tree/main). 
