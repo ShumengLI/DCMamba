@@ -17,7 +17,7 @@ Download Synapse dataset through [[Google Drive]](https://drive.google.com/file/
 
 3. Prepare the pre-trained weights
 
-Download through [[Google Drive]](https://drive.google.com/file/d/1uUPsr7XeqayCxlspqBHbg5zIWx0JYtSX/view?usp=sharing) for Mamba-UNet, and save in `../code/pre_trained_weights`.
+Download through [[Google Drive]](https://drive.google.com/file/d/1uUPsr7XeqayCxlspqBHbg5zIWx0JYtSX/view?usp=sharing) for Mamba-UNet, and save in `./pre_trained_weights`.
 
 4. Train the model
 ```
