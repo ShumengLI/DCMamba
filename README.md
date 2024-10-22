@@ -21,7 +21,7 @@ Download through [[Google Drive]](https://drive.google.com/file/d/1uUPsr7XeqayCx
 
 4. Train the model
 ```
-python train_pln.py --exp model_name
+python train_dcmamba.py --exp dcmamba --dataset synapse --num_classes 9 --labeled_num 4
 ```
 
 ### Acknowledgement
