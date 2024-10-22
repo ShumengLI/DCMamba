@@ -131,51 +131,6 @@ class NPY_datasets(Dataset):
         sample['name'] = img_path.split('.')[-2].split('/')[-1]
         return sample
 
-class Polyp_datasets(Dataset):
-    def __init__(self, base_dir, train=True, test_dataset='CVC-300', num=None, transform=None, strong_transform=None):
-        super(Polyp_datasets, self)
-        self.transform = transform
-        self.strong_transform = strong_transform
-        if train:
-            images_list = sorted(os.listdir(base_dir + 'TrainDataset/image/'))
-            masks_list = sorted(os.listdir(base_dir + 'TrainDataset/mask/'))
-            self.data = []
-            for i in range(len(images_list)):
-                img_path = base_dir + 'TrainDataset/image/' + images_list[i]
-                mask_path = base_dir + 'TrainDataset/mask/' + masks_list[i]
-                self.data.append([img_path, mask_path])
-            if num is not None:
-                self.data = self.data[:num]
-        else:
-            images_list = sorted(os.listdir(base_dir + 'TestDataset/' + test_dataset + '/images/'))
-            masks_list = sorted(os.listdir(base_dir + 'TestDataset/' + test_dataset + '/masks/'))
-            self.data = []
-            for i in range(len(images_list)):
-                img_path = base_dir + 'TestDataset/' + test_dataset + '/images/' + images_list[i]
-                mask_path = base_dir + 'TestDataset/' + test_dataset + '/masks/' + masks_list[i]
-                self.data.append([img_path, mask_path])
-
-    def __len__(self):
-        return len(self.data)
-
-    def __getitem__(self, index):
-        img_path, msk_path = self.data[index]
-        img = np.array(Image.open(img_path).convert('RGB'))
-        msk = np.expand_dims(np.array(Image.open(msk_path).convert('L')), axis=2) / 255  # (256, 256, 1)
-
-        img, msk = self.transform((img.astype(np.float32), msk))
-        sample = {'image': img, 'label': msk.squeeze()}
-        if self.strong_transform:
-            raw_img = sample['image']
-            sample['image'] = sample['image'].numpy().astype(np.float32)
-            sample['label'] = sample['label'].numpy().astype(np.float32)
-            sample_strong = self.strong_transform(sample)
-            sample['strong_aug'] = sample_strong['image'].squeeze()
-            sample['image'] = raw_img
-            sample['label'] = torch.from_numpy(sample['label']).long()
-        sample['name'] = img_path.split('.')[-2].split('/')[-1]
-        return sample
-
 class Kvasir(Dataset):
     def __init__(self, base_dir, train=True, num=None, transform=None, strong_transform=None):
         super(Kvasir, self)
