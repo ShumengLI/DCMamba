@@ -145,8 +145,6 @@ def train(args, snapshot_path):
         db_train = Synapse(base_dir=args.root_path, file_name="train", transform=weak_synapse, strong_transform=strong)
     elif "isic" in args.dataset:
         db_train = NPY_datasets(base_dir=args.root_path, transform=weak, strong_transform=strong)
-    elif args.dataset == 'polyp':
-        db_train = Polyp_datasets(base_dir=args.root_path, transform=weak, strong_transform=strong)
     elif args.dataset == 'kvasir':
         db_train = Kvasir(base_dir=args.root_path, transform=weak, strong_transform=strong)
     labeled_idxs = list(range(0, labeled_slice))
