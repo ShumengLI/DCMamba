@@ -4,7 +4,14 @@
 
 This is the Implementation of《Diversity-enhanced Collaborative Mamba for Semi-supervised Medical Image Segmentation》
 
-1. Prepare the dataset
+### Usage
+1. Clone the repository:
+```
+git clone https://github.com/ShumengLI/DCMamba.git 
+cd DCMamba
+```
+
+2. Prepare the dataset
 Download Synapse for Semi-/Supervised learning through [[Google Drive]](https://drive.google.com/file/d/1pO_YBx_3OCzadYQXzKsUqmXH6Ghv-z2y/view?usp=sharing)
 
 3. Prepare the pre-trained weights
