@@ -12,9 +12,11 @@ cd DCMamba
 ```
 
 2. Prepare the dataset
-Download Synapse for Semi-/Supervised learning through [[Google Drive]](https://drive.google.com/file/d/1pO_YBx_3OCzadYQXzKsUqmXH6Ghv-z2y/view?usp=sharing)
+
+Download Synapse dataset through [[Google Drive]](https://drive.google.com/file/d/1pO_YBx_3OCzadYQXzKsUqmXH6Ghv-z2y/view?usp=sharing)
 
 3. Prepare the pre-trained weights
+
 Download through [[Google Drive]](https://drive.google.com/file/d/1uUPsr7XeqayCxlspqBHbg5zIWx0JYtSX/view?usp=sharing) for Mamba-UNet, and save in `../code/pre_trained_weights`.
 
 4. Train the model
